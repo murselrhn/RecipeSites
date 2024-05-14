@@ -1,0 +1,58 @@
+﻿@model RecipeSites.Models.TBLRECIPE
+@{
+    ViewBag.Title = "Delete_Recipe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h2><font color="#2432ff">Delete Recipe</font></h2>
+
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <font color="#2432ff">
+                @Html.DisplayNameFor(model => model.Title)
+            </font>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            <font color="#2432ff">
+                @Html.DisplayNameFor(model => model.Integredients)
+            </font>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Integredients)
+        </dd>
+
+        <dt>
+            <font color="#2432ff">
+                @Html.DisplayNameFor(model => model.Instructions)
+            </font>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Instructions)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index_Recipe")
+        </div>
+    }
+</div>
+
+

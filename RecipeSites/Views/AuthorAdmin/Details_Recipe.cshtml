@@ -1,0 +1,55 @@
+﻿@model RecipeSites.Models.TBLRECIPE
+@{
+    ViewBag.Title = "Details_Recipe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2><font color="#2432ff">Details</font></h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <font color="#2432ff">
+                @Html.DisplayNameFor(model => model.Title)
+            </font>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            <font color="#2432ff">
+                @Html.DisplayNameFor(model => model.Integredients)
+            </font>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Integredients)
+        </dd>
+
+        <dt>
+            <font color="#2432ff">
+                @Html.DisplayNameFor(model => model.Instructions)
+            </font>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Instructions)
+        </dd>
+
+
+        
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit_Recipe", new { id = Model.Recipe_Id }) |
+    @Html.ActionLink("Back to List", "Index_Recipe")
+</p>
+
+
+
+

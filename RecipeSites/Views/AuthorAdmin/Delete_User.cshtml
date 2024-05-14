@@ -1,0 +1,56 @@
+﻿@model RecipeSites.Models.TBLUSER
+@{
+    ViewBag.Title = "Delete_User";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2><font color="#2432ff">Delete User</font></h2>
+
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <font color="#2432ff">
+                @Html.DisplayNameFor(model => model.Username)
+            </font>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            <font color="#2432ff">
+                @Html.DisplayNameFor(model => model.Password)
+            </font>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            <font color="#2432ff">
+                @Html.DisplayNameFor(model => model.Role)
+            </font>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Back to List", "Index_User")
+        </div>
+    }
+</div>
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a000cfa2afd643bb8543da78551cfe99" Name="Diagram1">
+        <EntityTypeShape EntityType="RecipeModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecipeModel.TBLCOMMENT" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecipeModel.TBLRATING" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecipeModel.TBLRECIPE" Width="1.5" PointX="5.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="RecipeModel.TBLUSER" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="RecipeModel.FK_TBLCOMMENT_TBLUSER" ManuallyRouted="false" />
+        <AssociationConnector Association="RecipeModel.FK_TBLRATING_TBLUSER" ManuallyRouted="false" />
+        <AssociationConnector Association="RecipeModel.FK_TBLCOMMENT_TBLRECIPE" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

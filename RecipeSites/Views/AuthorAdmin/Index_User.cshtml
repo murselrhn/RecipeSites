@@ -1,0 +1,123 @@
+﻿@model IEnumerable<RecipeSites.Models.TBLUSER>
+@{
+    ViewBag.Title = "Index_User";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    USERS
+
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
+                            <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
+                            <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body table-responsive">
+                <table class="table table table-striped table-bordered table-hover">
+
+                    <thead>
+                        <tr>
+
+
+                            <th>
+                                <font color="#2432ff">
+                                    @Html.DisplayNameFor(model => model.User_Id)
+                                </font>
+                            </th>
+
+
+                            <th>
+                                <font color="#2432ff">
+                                    @Html.DisplayNameFor(model => model.Username)
+                                </font>
+                            </th>
+                            <th>
+                                <font color="#2432ff">
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </font>
+                            </th>
+                            <th>
+                                <font color="#2432ff">
+                                    @Html.DisplayNameFor(model => model.NameSurname)
+                                </font>
+                            </th>
+                            <th>
+                                <font color="#2432ff">
+                                    @Html.DisplayNameFor(model => model.Password)
+                                </font>
+                            </th>
+
+                            <th>
+                                <font color="#2432ff">
+                                    @Html.DisplayNameFor(model => model.Add_ModifyDate)
+                                </font>
+                            </th>
+                            <th>
+                                <font color="#2432ff">
+                                    @Html.DisplayNameFor(model => model.Role)
+                                </font>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.User_Id)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Username)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NameSurname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Password)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Add_ModifyDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Role)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit_User", new { id = item.User_Id }) |
+                                    @Html.ActionLink("Details", "Details_User", new { id = item.User_Id }) |
+                                    @Html.ActionLink("Delete", "Delete_User", new { id = item.User_Id })
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+                <p>
+                    @Html.ActionLink("Create", "Create_User")
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,83 @@
+﻿@model RecipeSites.Models.TBLUSER
+@{
+    ViewBag.Title = "Details_User";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2><font color="#2432ff">Details</font></h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <font color="#2432ff">
+                @Html.DisplayNameFor(model => model.Username)
+            </font>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            <font color="#2432ff">
+                @Html.DisplayNameFor(model => model.Password)
+            </font>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            <font color="#2432ff">
+                @Html.DisplayNameFor(model => model.Email)
+            </font>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+
+        <dt>
+            <font color="#2432ff">
+                @Html.DisplayNameFor(model => model.NameSurname)
+            </font>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameSurname)
+        </dd>
+
+        <dt>
+            <font color="#2432ff">
+                @Html.DisplayNameFor(model => model.Add_ModifyDate)
+            </font>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Add_ModifyDate)
+        </dd>
+
+
+        <dt>
+            <font color="#2432ff">
+                @Html.DisplayNameFor(model => model.Role)
+            </font>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit_User", new { id = Model.User_Id }) |
+    @Html.ActionLink("Back to List", "Index_User")
+</p>
+
+
+

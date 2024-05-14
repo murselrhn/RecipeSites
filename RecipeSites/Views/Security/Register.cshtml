@@ -1,0 +1,58 @@
+﻿@using RecipeSites.Models;
+@model TBLUSER
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+    <div class="sidenav">
+        <div class="login-main-text">
+            <h2>
+               Sweety Recipes <br>
+                <br />
+                Register
+            </h2>
+
+        </div>
+    </div>
+    @using (Html.BeginForm("Register", "Security", FormMethod.Post))
+    {
+        <div class="main">
+            <div class="col-md-6 col-sm-12">
+                <div class="login-form">
+                    <form>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => Model.Username)
+                            @Html.TextBoxFor(m => Model.Username, new { @class = "form-control", placeholder = "Username" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => Model.Password)
+                            @Html.PasswordFor(m => Model.Password, new { @class = "form-control", placeholder = "Password" })
+                        </div>
+
+                        <button type="submit" class="btn btn-success">Register</button>
+                        <br />
+
+                       
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+
+</html>

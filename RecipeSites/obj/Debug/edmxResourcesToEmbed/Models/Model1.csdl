@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RecipeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TBLCOMMENT">
+    <Key>
+      <PropertyRef Name="Comment_Id" />
+    </Key>
+    <Property Name="Comment_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Time_Stamp" Type="DateTime" Precision="3" />
+    <Property Name="User" Type="Int32" />
+    <NavigationProperty Name="TBLUSER" Relationship="Self.FK_TBLCOMMENT_TBLUSER" FromRole="TBLCOMMENT" ToRole="TBLUSER" />
+    <Property Name="Recipe_Id" Type="Int32" />
+    <NavigationProperty Name="TBLRECIPE" Relationship="RecipeModel.FK_TBLCOMMENT_TBLRECIPE" FromRole="TBLCOMMENT" ToRole="TBLRECIPE" />
+  </EntityType>
+  <EntityType Name="TBLRATING">
+    <Key>
+      <PropertyRef Name="Rating_Id" />
+    </Key>
+    <Property Name="Rating_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="Int32" />
+    <Property Name="User" Type="Int32" />
+    <NavigationProperty Name="TBLUSER" Relationship="Self.FK_TBLRATING_TBLUSER" FromRole="TBLRATING" ToRole="TBLUSER" />
+  </EntityType>
+  <EntityType Name="TBLRECIPE">
+    <Key>
+      <PropertyRef Name="Recipe_Id" />
+    </Key>
+    <Property Name="Recipe_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Integredients" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Instructions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TBLCOMMENT" Relationship="RecipeModel.FK_TBLCOMMENT_TBLRECIPE" FromRole="TBLRECIPE" ToRole="TBLCOMMENT" />
+  </EntityType>
+  <EntityType Name="TBLUSER">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Add_ModifyDate" Type="DateTime" Precision="3" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TBLCOMMENT" Relationship="Self.FK_TBLCOMMENT_TBLUSER" FromRole="TBLUSER" ToRole="TBLCOMMENT" />
+    <NavigationProperty Name="TBLRATING" Relationship="Self.FK_TBLRATING_TBLUSER" FromRole="TBLUSER" ToRole="TBLRATING" />
+  </EntityType>
+  <Association Name="FK_TBLCOMMENT_TBLUSER">
+    <End Role="TBLUSER" Type="Self.TBLUSER" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TBLCOMMENT" Type="Self.TBLCOMMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLUSER">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="TBLCOMMENT">
+        <PropertyRef Name="User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBLRATING_TBLUSER">
+    <End Role="TBLUSER" Type="Self.TBLUSER" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TBLRATING" Type="Self.TBLRATING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLUSER">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="TBLRATING">
+        <PropertyRef Name="User" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RecipeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TBLCOMMENT" EntityType="Self.TBLCOMMENT" />
+    <EntitySet Name="TBLRATING" EntityType="Self.TBLRATING" />
+    <EntitySet Name="TBLRECIPE" EntityType="Self.TBLRECIPE" />
+    <EntitySet Name="TBLUSER" EntityType="Self.TBLUSER" />
+    <AssociationSet Name="FK_TBLCOMMENT_TBLUSER" Association="Self.FK_TBLCOMMENT_TBLUSER">
+      <End Role="TBLUSER" EntitySet="TBLUSER" />
+      <End Role="TBLCOMMENT" EntitySet="TBLCOMMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLRATING_TBLUSER" Association="Self.FK_TBLRATING_TBLUSER">
+      <End Role="TBLUSER" EntitySet="TBLUSER" />
+      <End Role="TBLRATING" EntitySet="TBLRATING" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBLCOMMENT_TBLRECIPE" Association="RecipeModel.FK_TBLCOMMENT_TBLRECIPE">
+      <End Role="TBLRECIPE" EntitySet="TBLRECIPE" />
+      <End Role="TBLCOMMENT" EntitySet="TBLCOMMENT" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_TBLCOMMENT_TBLRECIPE">
+    <End Type="RecipeModel.TBLRECIPE" Role="TBLRECIPE" Multiplicity="0..1" />
+    <End Type="RecipeModel.TBLCOMMENT" Role="TBLCOMMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBLRECIPE">
+        <PropertyRef Name="Recipe_Id" />
+      </Principal>
+      <Dependent Role="TBLCOMMENT">
+        <PropertyRef Name="Recipe_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

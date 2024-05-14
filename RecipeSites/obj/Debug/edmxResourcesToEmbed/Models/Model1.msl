@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RecipeModelStoreContainer" CdmEntityContainer="RecipeEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="RecipeModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLCOMMENT">
+      <EntityTypeMapping TypeName="RecipeModel.TBLCOMMENT">
+        <MappingFragment StoreEntitySet="TBLCOMMENT">
+          <ScalarProperty Name="Recipe_Id" ColumnName="Recipe_Id" />
+          <ScalarProperty Name="Comment_Id" ColumnName="Comment_Id" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Time_Stamp" ColumnName="Time_Stamp" />
+          <ScalarProperty Name="User" ColumnName="User" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLRATING">
+      <EntityTypeMapping TypeName="RecipeModel.TBLRATING">
+        <MappingFragment StoreEntitySet="TBLRATING">
+          <ScalarProperty Name="Rating_Id" ColumnName="Rating_Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="User" ColumnName="User" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLRECIPE">
+      <EntityTypeMapping TypeName="RecipeModel.TBLRECIPE">
+        <MappingFragment StoreEntitySet="TBLRECIPE">
+          <ScalarProperty Name="Recipe_Id" ColumnName="Recipe_Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Integredients" ColumnName="Integredients" />
+          <ScalarProperty Name="Instructions" ColumnName="Instructions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBLUSER">
+      <EntityTypeMapping TypeName="RecipeModel.TBLUSER">
+        <MappingFragment StoreEntitySet="TBLUSER">
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NameSurname" ColumnName="NameSurname" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Add_ModifyDate" ColumnName="Add_ModifyDate" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
